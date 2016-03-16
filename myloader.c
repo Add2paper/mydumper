@@ -147,7 +147,7 @@ int main(int argc, char *argv[]) {
 	if (!enable_binlog)
 		mysql_query(conn, "SET SQL_LOG_BIN=0");
 
-	mysql_query(conn, "/*!40014 SET FOREIGN_KEY_CHECKS=0*/");
+	mysql_query(conn, "SET FOREIGN_KEY_CHECKS=0");
 	conf.queue= g_async_queue_new();
 	conf.ready= g_async_queue_new();
 
