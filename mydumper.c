@@ -2300,6 +2300,7 @@ void dump_schema_data(MYSQL *conn, char *database, char *table, char *filename) 
 	if (detected_server == SERVER_TYPE_MYSQL) {
 		g_string_printf(statement,"/*!40101 SET NAMES binary*/;\n");
 		g_string_append(statement,"SET FOREIGN_KEY_CHECKS=0;\n");
+		g_string_append(statement,"SET AUTOCOMMIT=0;\n");
 		g_string_append(statement,"SET UNIQUE_CHECKS=0;\n\n");
 	} else {
 		g_string_printf(statement, "SET FOREIGN_KEY_CHECKS=0;\n");
@@ -2714,6 +2715,7 @@ guint64 dump_table_data(MYSQL * conn, FILE *file, char *database, char *table, c
 					if (!skip_tz) {
 					  g_string_append(statement,"/*!40103 SET TIME_ZONE='+00:00' */;\n");
 					}
+					g_string_append(statement,"SET AUTOCOMMIT=0;\n");
 					g_string_append(statement,"SET UNIQUE_CHECKS=0;\n");
 				} else {
 					g_string_printf(statement,"SET FOREIGN_KEY_CHECKS=0;\n");

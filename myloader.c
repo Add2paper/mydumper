@@ -148,6 +148,7 @@ int main(int argc, char *argv[]) {
 		mysql_query(conn, "SET SQL_LOG_BIN=0");
 
 	mysql_query(conn, "SET FOREIGN_KEY_CHECKS=0");
+	mysql_query(conn, "SET AUTOCOMMIT=0");
 	mysql_query(conn, "SET UNIQUE_CHECKS=0");
 	conf.queue= g_async_queue_new();
 	conf.ready= g_async_queue_new();
